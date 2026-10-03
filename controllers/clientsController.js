@@ -67,12 +67,10 @@ const createClient = async (req, res) => {
             return res.status(409).json({ message: 'A user with this email already exists' });
         }
 
-        // Step 1: create the login user
         const hashedPassword = await bcrypt.hash(password, 10);
         const newUser = { email, password: hashedPassword, role: 'customer' };
         const userResult = await usersCollection.insertOne(newUser);
 
-        // Step 2: create the client record, linked via userId
         const newClient = {
             userId: userResult.insertedId,
             firstName,
@@ -135,7 +133,6 @@ const updateClient = async (req, res) => {
     }
 };
 
-// Deletes both the client record AND its linked login user
 const deleteClient = async (req, res) => {
     try {
         const clientId = new ObjectId(req.params.id);

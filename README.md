@@ -8,7 +8,7 @@ To use the program, a client sends HTTP requests to the API (tested with Postman
 
 I wrote this software to deepen my understanding of how to design and secure a real-world cloud-backed API: structuring related collections in a NoSQL database, enforcing authorization at the data level (not just the route level), and handling business logic like inventory deduction safely.
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/hjChyzLvmFw)
 
 # Cloud Database
 
@@ -46,6 +46,7 @@ The database is organized into four collections:
 - [Express.js Documentation](https://expressjs.com/)
 - [jsonwebtoken (npm)](https://www.npmjs.com/package/jsonwebtoken)
 - [bcryptjs (npm)](https://www.npmjs.com/package/bcryptjs)
+- [MongoDB Crash Course] (https://www.youtube.com/watch?v=ofme2o29ngU)
 
 # Future Work
 

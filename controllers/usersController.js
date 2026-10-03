@@ -37,8 +37,6 @@ const getUserById = async (req, res) => {
     }
 };
 
-// Used for staff roles (boss, seller, warehouse) created directly by the boss.
-// Customers are created through POST /clients instead (creates user + client together).
 const createUser = async (req, res) => {
     try {
         const { email, password, role } = req.body;

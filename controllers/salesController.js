@@ -55,8 +55,7 @@ const createSale = async (req, res) => {
         const productsCollection = db.collection('products');
 
         const saleItems = [];
-
-        // 1. Check stock AND capture the current price for each product
+        
         for (const item of products) {
             const product = await productsCollection.findOne({ _id: new ObjectId(item.productId) });
 
@@ -82,7 +81,6 @@ const createSale = async (req, res) => {
             });
         }
 
-        // 2. Decrement stock now that everything checked out
         for (const item of saleItems) {
             await productsCollection.updateOne(
                 { _id: item.productId, "stock.store": store },
@@ -90,7 +88,6 @@ const createSale = async (req, res) => {
             );
         }
 
-        // 3. Calculate the total and create the sale
         const total = saleItems.reduce((sum, item) => sum + item.subtotal, 0);
 
         const newSale = {

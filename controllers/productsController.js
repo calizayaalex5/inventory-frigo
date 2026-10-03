@@ -86,7 +86,6 @@ const updateProduct = async (req, res) => {
         const updatedFields = {};
 
         if (req.user.role === 'warehouse') {
-            // Warehouse can ONLY update stock, regardless of what else is in the body
             if (stock !== undefined) updatedFields.stock = stock;
         } else {
             // boss can update everything
